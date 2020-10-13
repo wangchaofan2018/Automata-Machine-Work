@@ -12,21 +12,21 @@ public class NFA {
         add(new Status("q1", '0', "q1"));
         add(new Status("q1", '1', "q1"));
         add(new Status("q1", '1', "q2"));
-        add(new Status("q1", '#', "REFUSE"));
+        add(new Status("q1", 'ε', "REFUSE"));
         add(new Status("q2", '0', "q3"));
-        add(new Status("q2", '#', "q3"));
+        add(new Status("q2", 'ε', "q3"));
         add(new Status("q2", '1', "REFUSE"));
         add(new Status("q3", '0', "REFUSE"));
         add(new Status("q3", '1', "q4"));
-        add(new Status("q3", '#', "REFUSE"));
+        add(new Status("q3", 'ε', "REFUSE"));
         add(new Status("q4", '0', "q4"));
         add(new Status("q4", '1', "q4"));
-        add(new Status("q4", '#', "REFUSE"));
+        add(new Status("q4", 'ε', "REFUSE"));
     }};
 
     public static void getResultList(Set<String> result, char i) {
         list.forEach(u->{
-            if (result.contains(u.from) && (i == u.way|| i=='#')&&!"REFUSE".equals(u.to)) {
+            if (result.contains(u.from) && (i == u.way|| i=='ε')&&!"REFUSE".equals(u.to)) {
                 result.add(u.to);
             }
         });
@@ -46,7 +46,7 @@ public class NFA {
             Status cur = queue.pollFirst();
             temp.add(cur);
             list.forEach(u->{
-                if (u.from.equals(cur.to) && u.way == '#' && !"REFUSE".equals(u.to)) {
+                if (u.from.equals(cur.to) && u.way == 'ε' && !"REFUSE".equals(u.to)) {
                     queue.add(new Status(u.from,u.way,u.to));
                 }
             });
