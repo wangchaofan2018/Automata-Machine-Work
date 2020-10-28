@@ -1,3 +1,5 @@
+package NFA;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -24,15 +26,7 @@ public class NFA {
         add(new Status("q4", 'ε', "REFUSE"));
     }};
 
-    public static void getResultList(Set<String> result, char i) {
-        list.forEach(u->{
-            if (result.contains(u.from) && (i == u.way|| i=='ε')&&!"REFUSE".equals(u.to)) {
-                result.add(u.to);
-            }
-        });
-    }
-
-    public static LinkedList<Status> toWhere(String from, char way,int index) {
+    public static LinkedList<Status> toWhere(String from, char way, int index) {
         LinkedList<Status> temp = new LinkedList<>();
         LinkedList<Status> queue = new LinkedList<>();
         List<Status> shouldRemove = new ArrayList<>();

@@ -1,3 +1,5 @@
+package NFA;
+
 /**
  * Created by wangchaofan on 2020/10/13.
  */
