@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class PDA {
 
     /**
-     * #代表空 %
-     * 将(a/b/c)其中一个压入栈,当前栈顶为ε时,ε代表 (a/b/c)/ε .
+     * $号做为栈底标识符
+     * #号作为入栈出栈标识符
      */
     private final static String ACCEPT_STATUS = "q7";
     static List<Status> list = new ArrayList<Status>() {{
