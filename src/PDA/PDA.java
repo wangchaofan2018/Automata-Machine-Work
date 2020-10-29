@@ -80,19 +80,18 @@ public class PDA {
 
     }
 
-    public static void main(String[] args) {
+    public static void processed(String str) {
         LinkedList<Character> stack = new LinkedList<>();
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
         String curStatus = "q1";
         str = "#" + str;
         for (int i = 0; i < str.length(); i++) {
             Character curChar = str.charAt(i);
             Status status = getStatus(curStatus, curChar, stack);
-            System.out.println(status);
             if (status == null) {
                 System.out.println("字符串非法 被拒绝!");
                 return;
+            } else {
+                System.out.println(status);
             }
             curStatus = status.newStatus;
         }
@@ -106,5 +105,14 @@ public class PDA {
         } else {
             System.out.println("字符串不是终止状态 被拒绝！");
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = null;
+        while (!(str = sc.nextLine()).equals("exit")) {
+            processed(str);
+        }
+
     }
 }
