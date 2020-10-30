@@ -58,14 +58,11 @@ public class PDA {
             }
         } else {
             for (Status u : list) {
-                if (u.oldStatus.equals(curStatus) && u.curChar == curChar && u.stackTopItem != curChar) {
-                    if (u.stackTopItem != '#') {
-                        if (stack.peek() == '$') {
-                            return null;
-                        } else {
-                            stack.pop();
-                        }
-
+                if (u.oldStatus.equals(curStatus) && u.curChar == curChar && u.stackTopItem != curChar && u.stackTopItem != '#') {
+                    if (stack.peek() == '$') {
+                        return null;
+                    } else {
+                        stack.pop();
                     }
                     return u;
                 }
