@@ -37,8 +37,8 @@ public class TM {
         add(new Status("q5", '=', '=', 'R', "q7"));
         add(new Status("q7", 'X', 'X', 'R', "q7"));
         add(new Status("q7", 'O', 'X', 'R', "q9"));
-        //图灵机接受 永不停机
-        add(new Status("accept", ' ', ' ', 'H', "accept"));
+//        //图灵机接受 不停机
+//        add(new Status("accept", ' ', ' ', 'H', "accept"));
 
     }};
 
@@ -66,6 +66,7 @@ public class TM {
             curStatus = status.newStatus;
             if (status.newStatus == ACCEPT_STATUS) {
                 System.out.println("字符串被接受");
+                return;
             }
         }
     }
